@@ -1,90 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:trova/Screens/home/AddPost.dart';
-import 'package:trova/Screens/home/LandingPage.dart';
-import 'package:trova/Screens/home/MarketPage.dart';
-import 'package:trova/Screens/home/ProfilePage.dart';
-import 'package:trova/Screens/home/SearchPage.dart';
-import 'package:trova/widget/CustomBottomNavigationBar.dart';
-import '../../model/post_model.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-class HomePage extends StatefulWidget {
+class Custombottomnavigationbar extends StatefulWidget {
+  const Custombottomnavigationbar({super.key});
+
   @override
-  _HomePageState createState() => _HomePageState();
+  State<Custombottomnavigationbar> createState() =>
+      _CustombottomnavigationbarState();
 }
 
-class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
-  double? _deviceWidth, _deviceHeight;
-
+class _CustombottomnavigationbarState extends State<Custombottomnavigationbar> {
+  int _selectedIndex = 0;
+  double? _deviceHeight, _deviceWidth;
+  int val = 2;
+  // List of widgets for each page
   final List<Widget> _pages = [
-    Landingpage(),
-    Searchpage(),
-    Marketpage(),
-    Profilepage()
+    Center(child: Text("Home Page")),
+    Center(child: Text("Search Page")),
+    Center(child: Text("Profile Page")),
   ];
+
+  // Function to change the selected index
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     _deviceWidth = MediaQuery.of(context).size.width;
     _deviceHeight = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/profile.jpg'),
-              fit: BoxFit.cover,
-            ),
-          ),
-        ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage('assets/profile.jpg'),
-                  radius: 25,
-                ),
-                SizedBox(width: 10),
-                Text('Welcome',
-                    style:
-                        TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
-              ],
-            ),
-            Text('John Doe',
-                style: TextStyle(fontSize: 18, color: Colors.white)),
-          ],
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: Icon(Icons.notifications),
-            onPressed: () {},
-          ),
-        ],
-      ),
-      body: Stack(
-        children: [
-          _pages[_currentIndex],
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              margin: EdgeInsets.only(bottom: 20),
-              child: _bottomConatiner(),
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _bottomConatiner() {
     return Container(
       width: _deviceWidth! * 0.9,
       height: _deviceHeight! * 0.07,
@@ -115,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _currentIndex = 0;
+                      val = 0;
                     });
                   },
                   child: Column(
@@ -123,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(Icons.home_filled),
-                      _currentIndex == 0
+                      val == 0
                           ? Container(
                               color: Colors.red,
                               width: 3,
@@ -136,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _currentIndex = 1;
+                      val = 1;
                     });
                   },
                   child: Column(
@@ -144,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(Icons.search),
-                      _currentIndex == 1
+                      val == 1
                           ? Container(
                               color: Colors.red,
                               width: 3,
@@ -157,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _currentIndex = 2;
+                      val = 2;
                     });
                   },
                   child: Column(
@@ -165,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(Icons.shopping_bag_outlined),
-                      _currentIndex == 2
+                      val == 2
                           ? Container(
                               color: Colors.red,
                               width: 3,
@@ -178,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                 GestureDetector(
                   onTap: () {
                     setState(() {
-                      _currentIndex = 3;
+                      val = 3;
                     });
                   },
                   child: Column(
@@ -186,7 +131,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(Icons.person),
-                      _currentIndex == 3
+                      val == 3
                           ? Container(
                               color: Colors.red,
                               width: 3,
@@ -199,22 +144,16 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Addpost()));
-            },
-            child: Container(
-              width: _deviceHeight! * 0.07,
-              height: _deviceHeight! * 0.07,
-              decoration: BoxDecoration(
-                  color: Color.fromRGBO(35, 134, 136, 1),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-                size: 35,
-              ),
+          Container(
+            width: _deviceHeight! * 0.07,
+            height: _deviceHeight! * 0.07,
+            decoration: BoxDecoration(
+                color: Color.fromRGBO(35, 134, 136, 1),
+                borderRadius: BorderRadius.circular(100)),
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+              size: 35,
             ),
           )
         ],
