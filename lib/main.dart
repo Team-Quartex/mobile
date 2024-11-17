@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trova/theme/app_theme.dart';
-import 'auth/login_page.dart';
+import 'Screens/home/HomePage.dart';
+//import 'auth/login_page.dart';
 
 
 void main() async {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget{
       debugShowCheckedModeBanner: false,
       title: "Trova",
       theme: AppTheme.theme,
-      home:  LoginPage(),
+      home:  HomePage(),
     );
   }
 
