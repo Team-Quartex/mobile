@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 
 class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    // Get screen width and height for responsiveness
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -13,92 +14,93 @@ class SignupPage extends StatelessWidget {
         children: [
           Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.07), // Adjusting padding based on screen width
+              padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth *
+                      0.07),
               child: SingleChildScrollView(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start, // Changed to start for better alignment
+                  mainAxisAlignment: MainAxisAlignment
+                      .start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Spacer before the logo to move it down
-                    SizedBox(height: screenHeight * 0.1), // 10% of screen height for extra space above logo
-
-                    // Logo
+                    SizedBox(
+                        height: screenHeight *
+                            0.1),
                     Row(
                       children: [
                         Image.asset(
                           'assets/logoo.png',
-                          height: screenHeight * 0.04, // Adjusted the logo height for better visibility
+                          height: screenHeight *
+                              0.04,
                         ),
                         SizedBox(width: screenWidth * 0.01),
                       ],
                     ),
-                    SizedBox(height: screenHeight * 0.03), // Space between logo and text
-
-                    // Hello There Text
+                    SizedBox(
+                        height:
+                            screenHeight * 0.03),
                     Text(
                       "Hello There,",
                       style: TextStyle(
-                        fontSize: screenWidth * 0.12, // Responsive font size
+                        fontSize: screenWidth * 0.12,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF1C4E4E),
+                        color: const Color(0xFF1C4E4E),
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.02),
 
-                    // Name Field
+
                     TextField(
                       decoration: InputDecoration(
                         labelText: "Name",
                         labelStyle: TextStyle(
-                          fontSize: screenWidth * 0.04, // Responsive label font size
-                          color: Color(0xFF238688),
+                          fontSize:
+                              screenWidth * 0.04,
+                          color: const Color(0xFF238688),
                         ),
-                        border: UnderlineInputBorder(),
+                        border: const UnderlineInputBorder(),
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.02),
 
-                    // Email Field
+
                     TextField(
                       decoration: InputDecoration(
                         labelText: "Email",
                         labelStyle: TextStyle(
                           fontSize: screenWidth * 0.04,
-                          color: Color(0xFF238688),
+                          color: const Color(0xFF238688),
                         ),
-                        border: UnderlineInputBorder(),
+                        border: const UnderlineInputBorder(),
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.02),
 
-                    // Nickname Field
                     TextField(
                       decoration: InputDecoration(
                         labelText: "What we call to you",
                         labelStyle: TextStyle(
                           fontSize: screenWidth * 0.04,
-                          color: Color(0xFF238688),
+                          color: const Color(0xFF238688),
                         ),
-                        border: UnderlineInputBorder(),
+                        border: const UnderlineInputBorder(),
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.02),
 
-                    // Password Field
                     TextField(
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: "Password",
                         labelStyle: TextStyle(
                           fontSize: screenWidth * 0.04,
-                          color: Color(0xFF238688),
+                          color: const Color(0xFF238688),
                         ),
-                        border: UnderlineInputBorder(),
+                        border: const UnderlineInputBorder(),
                       ),
                     ),
                     SizedBox(height: screenHeight * 0.02),
 
-                    // Terms and Conditions Checkbox
                     Row(
                       children: [
                         Checkbox(
@@ -118,24 +120,27 @@ class SignupPage extends StatelessWidget {
                     ),
                     SizedBox(height: screenHeight * 0.04),
 
-                    // Sign Up Button
+
                     Center(
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF238688),
+                          backgroundColor: const Color(0xFF238688),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(32),
                           ),
                           padding: EdgeInsets.symmetric(
-                            horizontal: screenWidth * 0.15, // Responsive horizontal padding
-                            vertical: screenHeight * 0.02, // Responsive vertical padding
+                            horizontal: screenWidth *
+                                0.15,
+                            vertical: screenHeight *
+                                0.02,
                           ),
                         ),
                         child: Text(
                           "Sign up",
                           style: TextStyle(
-                            fontSize: screenWidth * 0.05, // Responsive font size
+                            fontSize:
+                                screenWidth * 0.05,
                             color: Colors.white,
                           ),
                         ),
@@ -143,13 +148,14 @@ class SignupPage extends StatelessWidget {
                     ),
                     SizedBox(height: screenHeight * 0.02),
 
-                    // Login Link
+
                     Center(
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => LoginPage()),
+                            MaterialPageRoute(
+                                builder: (context) => LoginPage()),
                           );
                         },
                         child: Text.rich(
@@ -164,7 +170,7 @@ class SignupPage extends StatelessWidget {
                                 text: "Login",
                                 style: TextStyle(
                                   fontSize: screenWidth * 0.035,
-                                  color: Color(0xFF238688),
+                                  color: const Color(0xFF238688),
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -179,11 +185,11 @@ class SignupPage extends StatelessWidget {
             ),
           ),
 
-          // Footer
+
           Container(
-            color: Color(0xFF238688),
+            color: const Color(0xFF238688),
             padding: const EdgeInsets.all(12),
-            child: Center(
+            child: const Center(
               child: Text(
                 "Copyright © 2024 Quartex. All Rights Reserved !",
                 style: TextStyle(

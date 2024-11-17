@@ -4,30 +4,27 @@ import 'app_colors.dart';
 class AppTheme {
   static ThemeData get theme {
     return ThemeData(
-      // Set primary and secondary colors
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.background,
 
-      // Color Scheme
-      colorScheme: ColorScheme(
+
+      colorScheme: const ColorScheme(
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         surface: AppColors.background,
-        background: AppColors.background,
         error: AppColors.accent,
         onPrimary: AppColors.textSecondary,
         onSecondary: AppColors.textSecondary,
         onSurface: AppColors.textPrimary,
-        onBackground: AppColors.textPrimary,
         onError: AppColors.textSecondary,
         brightness: Brightness.light,
       ),
 
-      // Font family
+
       fontFamily: 'TanseekModernProArabic',
 
-      // Text Theme
-      textTheme: TextTheme(
+
+      textTheme: const TextTheme(
         displayLarge: TextStyle(
           fontSize: 32,
           fontWeight: FontWeight.bold,
@@ -48,19 +45,19 @@ class AppTheme {
         ),
       ),
 
-      // Button Theme
+
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
           ),
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         ),
       ),
 
-      // Input Decoration Theme
-      inputDecorationTheme: InputDecorationTheme(
+
+      inputDecorationTheme: const InputDecorationTheme(
         labelStyle: TextStyle(
           fontSize: 16,
           color: AppColors.secondary,
